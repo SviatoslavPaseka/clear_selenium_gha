@@ -39,6 +39,10 @@ public class SelenoidTest {
 
         WebElement inputField = driver.findElement(By.xpath("//input[@name='search']"));
 
+
+        Assert.assertTrue(inputField.isDisplayed(), "input field is not displayed");
+        inputField.sendKeys("razor");
+
         Assert.assertTrue(inputField.isDisplayed(), "input field is not displayed");
 
         driver.quit();
