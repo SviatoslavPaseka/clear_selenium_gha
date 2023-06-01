@@ -41,6 +41,7 @@ public class SelenoidTest {
         System.out.println("Title: " + searchField.getAttribute("placeholder"));
 
         Assert.assertTrue(searchField.isDisplayed(),  "Search field are not displayed");
+        Assert.assertEquals(searchField.getAttribute("placeholder"),"Я шукаю...",  "Text in search field is wrong");
         driver.quit();
     }
 }
