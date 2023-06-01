@@ -36,6 +36,7 @@ public class SelenoidTest {
         driver.get(url);
 
         String title = driver.getTitle();
+        LOGGER.info("Title: " + title);
         Assert.assertEquals(title, "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого онлайн-гіпермаркету " +
                 "в Україні", "Title text not equals as expected");
         LOGGER.info("All ok.");
