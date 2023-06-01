@@ -37,7 +37,7 @@ public class SelenoidTest {
 
         Assert.assertNotEquals(inputField, "something", "input field is not displayed");
 
-//        Assert.assertTrue(driver.findElement(By.xpath("//input[@name='search']")).isDisplayed(), "error");
+        Assert.assertTrue(driver.findElement(By.xpath("//input[@name='search']")).isDisplayed(), "error");
 
         driver.quit();
     }
