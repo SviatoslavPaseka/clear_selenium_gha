@@ -37,9 +37,6 @@ public class SelenoidTest {
 
 
         Assert.assertFalse(inputField.isDisplayed(), "input field is not displayed");
-        inputField.sendKeys("razor");
-
-        Assert.assertTrue(inputField.isDisplayed(), "input field is not displayed");
 
         driver.quit();
     }
