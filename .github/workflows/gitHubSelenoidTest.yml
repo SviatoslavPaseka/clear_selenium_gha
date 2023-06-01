@@ -27,7 +27,5 @@ jobs:
           browsers: chrome
           last-versions: 1
 
-
-
       - name: Build and run tests
         run: mvn clean test -Dsuite=selenoid

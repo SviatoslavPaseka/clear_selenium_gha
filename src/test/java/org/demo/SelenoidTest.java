@@ -4,7 +4,9 @@ import java.lang.invoke.MethodHandles;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
@@ -35,11 +37,10 @@ public class SelenoidTest {
         driver.manage().window().maximize();
         driver.get(url);
 
-        String title = driver.getTitle();
-        LOGGER.info("Title: " + title);
-        Assert.assertEquals(title, "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого онлайн-гіпермаркету " +
-                "в Україні", "Title text not equals as expected");
-        LOGGER.info("All ok.");
+        WebElement searchField = driver.findElement(By.xpath("//input[@name='search']"));
+        System.out.println("Title: " + searchField.getAttribute("placeholder"));
+
+        Assert.assertTrue(searchField.isDisplayed(),  "Search field are not displayed");
         driver.quit();
     }
 }
