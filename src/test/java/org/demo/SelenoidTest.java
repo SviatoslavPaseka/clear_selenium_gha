@@ -24,8 +24,8 @@ public class SelenoidTest {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
-//        capabilities.setCapability("enableVNC", true);
-//        capabilities.setCapability("enableVideo", false);
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
 
         WebDriver driver = null;
         try {
