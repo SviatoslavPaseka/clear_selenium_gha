@@ -33,10 +33,10 @@ public class SelenoidTest {
         driver.manage().window().maximize();
         driver.get(url);
 
-        WebElement inputField = driver.findElement(By.xpath("//input[@name='search']"));
+        String inputField = driver.getTitle();
 
 
-        Assert.assertFalse(inputField.isDisplayed(), "input field is not displayed");
+        Assert.assertEquals(inputField, "something", "input field is not displayed");
 
         driver.quit();
     }
