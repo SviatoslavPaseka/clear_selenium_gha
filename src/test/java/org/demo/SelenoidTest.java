@@ -12,9 +12,14 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class SelenoidTest {
+    @BeforeTest
+    public void intro(){
+        System.out.println("Starting test");
+    }
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public String url = "https://rozetka.com.ua/ua/";
