@@ -35,7 +35,7 @@ public class SelenoidTest {
 
         String title = driver.getTitle();
         String currentUrl = driver.getCurrentUrl();
-        WebElement webElement = null;
+        WebElement webElement = driver.findElement(By.id("fat-menu"));
         System.out.println("title: " + title);
         System.out.println("currentUrl: " + currentUrl);
 
