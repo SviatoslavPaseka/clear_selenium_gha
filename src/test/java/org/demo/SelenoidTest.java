@@ -35,10 +35,10 @@ public class SelenoidTest {
 
         String title = driver.getTitle();
         String currentUrl = driver.getCurrentUrl();
-        WebElement webElement = driver.findElement(By.id("fat-menu"));
+
         System.out.println("title: " + title);
         System.out.println("currentUrl: " + currentUrl);
-
+        WebElement webElement = driver.findElement(By.id("fat-menu"));
         Assert.assertEquals(title, "Just a moment...", "title is not correct");
 
         driver.quit();
