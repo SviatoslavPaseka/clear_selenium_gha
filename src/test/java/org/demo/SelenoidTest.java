@@ -54,8 +54,13 @@ public class SelenoidTest {
 
         final String WORD = "razor";
 
+        System.out.println("title: " + title);
+        System.out.println("url from driver: " + driver.getCurrentUrl());
+
         WebElement webElement = driver.findElement(By.xpath("//*[@name='search']"));
         webElement.sendKeys(WORD);
+
+        System.out.println("value in field: " + webElement.getAttribute("value"));
 
         Assert.assertEquals(title, "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого онлайн-гіпермаркету в Україні", "title is not correct");
         Assert.assertEquals(webElement.getAttribute("value"), WORD, "value in input field is not equals passed value");
