@@ -2,45 +2,65 @@ package org.demo;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SelenoidTest {
+    public WebDriver driver;
 
     public String url = "https://rozetka.com.ua/ua/";
 
     @Test
     public void testTitleText() {
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--no-sandbox");
 
-        WebDriver driver = null;
-        try {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+        options.addArguments("--disable-dev-shm-usage");
 
+        options.addArguments("--headless");
+
+        driver = new ChromeDriver(options);
+
+
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("browserName", "chrome");
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", false);
+//
+//        try {
+//
+//            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(url);
 
         String title = driver.getTitle();
-        String currentUrl = driver.getCurrentUrl();
 
-        System.out.println("title: " + title);
-        System.out.println("currentUrl: " + currentUrl);
-        WebElement webElement = driver.findElement(By.id("fat-menu"));
-        Assert.assertEquals(title, "Just a moment...", "title is not correct");
+        final String WORD = "razor";
 
-        driver.quit();
+        WebElement webElement = driver.findElement(By.xpath("//*[@name='search']"));
+        webElement.sendKeys(WORD);
+
+        Assert.assertEquals(title, "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого онлайн-гіпермаркету в Україні", "title is not correct");
+        Assert.assertEquals(webElement.getAttribute("value"), WORD, "value in input field is not equals passed value");
+
+
+        driver.close();
     }
 }
