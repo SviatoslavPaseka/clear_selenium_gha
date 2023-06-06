@@ -34,7 +34,9 @@ public class SelenoidTest {
         driver.get(url);
 
         String title = driver.getTitle();
+        String currentUrl = driver.getCurrentUrl();
         System.out.println("title: " + title);
+        System.out.println("currentUrl: " + currentUrl);
 
         Assert.assertEquals(title, "Just a moment...", "title is not correct");
 
