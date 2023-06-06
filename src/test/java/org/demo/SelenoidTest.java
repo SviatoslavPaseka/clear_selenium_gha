@@ -35,6 +35,7 @@ public class SelenoidTest {
 
         String title = driver.getTitle();
         String currentUrl = driver.getCurrentUrl();
+        WebElement webElement = null;
         System.out.println("title: " + title);
         System.out.println("currentUrl: " + currentUrl);
 
