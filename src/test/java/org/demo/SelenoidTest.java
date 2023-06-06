@@ -34,8 +34,9 @@ public class SelenoidTest {
         driver.get(url);
 
         String title = driver.getTitle();
+        System.out.println("title: " + title);
 
-        Assert.assertNotEquals(title, "something", "input field is not displayed");
+        Assert.assertEquals(title, "something", "input field is not displayed");
 
         driver.quit();
     }
