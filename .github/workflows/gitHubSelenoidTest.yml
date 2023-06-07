@@ -27,13 +27,6 @@ jobs:
           args: -limit 10
           browsers: chrome
           last-versions: 1
-      - name: Install Google Chrome
-
-        run: |
-          
-          chmod +x ./scripts/InstallChrome.sh
-          
-                      ./scripts/InstallChrome.sh
 
       - name: Build and run tests
         run: mvn clean test -Dsuite=selenoid

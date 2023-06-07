@@ -23,30 +23,29 @@ public class SelenoidTest {
     @Test
     public void testTitleText() {
 
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-
-        options.addArguments("--disable-dev-shm-usage");
-
-        options.addArguments("--headless");
-
-        driver = new ChromeDriver(options);
-
-
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability("browserName", "chrome");
-//        capabilities.setCapability("enableVNC", true);
-//        capabilities.setCapability("enableVideo", false);
+//        WebDriverManager.chromedriver().setup();
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--no-sandbox");
 //
-//        try {
+//        options.addArguments("--disable-dev-shm-usage");
 //
-//            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
+//        options.addArguments("--headless");
+//
+//        driver = new ChromeDriver(options);
 
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+
+        try {
+
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
         driver.manage().window().maximize();
         driver.get(url);
 
