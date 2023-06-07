@@ -65,7 +65,7 @@ public class SelenoidTest {
         Assert.assertEquals(webElement.getAttribute("value"), WORD, "value in input field is not equals passed value");
 
         webElement.clear();
-        webElement.sendKeys(WORD);
+        webElement.sendKeys(WORD + WORD);
 
         Assert.assertEquals(webElement.getAttribute("value"), WORD + WORD, "value in input field is not equals passed value");
 
