@@ -62,7 +62,7 @@ public class SelenoidTest {
 //        System.out.println("value in field: " + webElement.getAttribute("value"));
 
         Assert.assertEquals(title, "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого онлайн-гіпермаркету в Україні", "title is not correct");
-//        Assert.assertEquals(webElement.getAttribute("value"), WORD, "value in input field is not equals passed value");
+        Assert.assertEquals(webElement.getAttribute("value"), WORD, "value in input field is not equals passed value");
 
 
         driver.close();
