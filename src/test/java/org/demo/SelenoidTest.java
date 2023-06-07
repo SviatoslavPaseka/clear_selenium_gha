@@ -64,6 +64,10 @@ public class SelenoidTest {
         Assert.assertEquals(title, "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого онлайн-гіпермаркету в Україні", "title is not correct");
         Assert.assertEquals(webElement.getAttribute("value"), WORD, "value in input field is not equals passed value");
 
+        webElement.clear();
+        webElement.sendKeys(WORD);
+
+        Assert.assertEquals(webElement.getAttribute("value"), WORD + WORD, "value in input field is not equals passed value");
 
         driver.close();
     }
