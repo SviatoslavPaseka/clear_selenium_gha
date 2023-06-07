@@ -56,8 +56,8 @@ public class SelenoidTest {
         System.out.println("title: " + title);
         System.out.println("url from driver: " + driver.getCurrentUrl());
 
-//        WebElement webElement = driver.findElement(By.xpath("//*[@name='search']"));
-//        webElement.sendKeys(WORD);
+        WebElement webElement = driver.findElement(By.xpath("//*[@name='search']"));
+        webElement.sendKeys(WORD);
 
 //        System.out.println("value in field: " + webElement.getAttribute("value"));
 
