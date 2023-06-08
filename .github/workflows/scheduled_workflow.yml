@@ -2,7 +2,7 @@ name: cron_schedule
 
 on:
 #   schedule:
-#     - cron: '0*/10*?**'
+#     - cron: '0*/10*?**' # is is start my workflow every 10 minute
 
 jobs:
   test:
